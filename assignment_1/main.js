@@ -1,11 +1,21 @@
 window.onload = function() {
-    indexJS();
-    //secondJS();
+    let url=location.href;
+    let urlFilename = url.substring(url.lastIndexOf('/')+1);
+
+    // differentiate between the two html pages
+    if (urlFilename==="index.html"){
+        indexJS();
+    } else {
+        secondJS();
+    }
+    mainJS();
 }
 
 function indexJS(){
+    // change the title
     document.title = "Webprogramming (LIX019P05) - Index";
 
+    // create a second sidebar
     let elemArt = document.createElement("ARTICLE");
     let elemHead = document.createElement("H1");
     let elemPar = document.createElement("P");
@@ -17,14 +27,58 @@ function indexJS(){
     elemPar.appendChild(textPar);
     document.getElementsByClassName("col-md-12")[0].appendChild(elemArt);
 
-    let thirdLI = document.getElementsByTagName("footer")[0].getElementsByTagName("li")[2].getElementsByTagName("a")[0];
-    thirdLI.href = "https://google.com";
+    // create a sidebar
+    document.getElementsByClassName("col-md-12")[0].className = "col-md-8";
+    let elemSide = document.createElement("div");
+    elemSide.className = "col-md-4";
+    let sideHead = document.createElement("H1");
+    elemSide.appendChild(sideHead);
+    let textSide = document.createTextNode("Sidebar");
+    sideHead.appendChild(textSide);
+    document.getElementsByClassName("row")[0].appendChild(elemSide);
 
-    let typ = document.createAttribute("target");
-    typ.value = "_blank";
-    thirdLI.attributes.setNamedItem(typ);
+    let checkObject = {
+        Week1: "Assignment 1",
+        Week2: "No lecture",
+        Week3: "Assignment 2",
+        Week4: "-",
+        Week5: "Assignment 3",
+        Week6: "-",
+        Week7: "Guest Lecture"
+    }
+
+    // make a string of the JS object
+    let txt = "";
+    for (let name in checkObject){
+        txt += name + "  =>  " + checkObject[name] + "<br>";
+    }
+
+    // display the contents of the object in a "p" element in the sidebar
+    let checkElem = document.createElement("p");
+    checkElem.innerHTML = txt;
+    document.getElementsByClassName("col-md-4")[0].appendChild(checkElem);
 }
 
 function secondJS(){
+    // change the title
     document.title = "Webprogramming (LIX019P05) - Second";
+}
+
+function mainJS(){
+    // third li element links to google
+    let thirdLI = document.getElementsByTagName("footer")[0].getElementsByTagName("li")[2].getElementsByTagName("a")[0];
+    thirdLI.href = "https://google.com";
+
+    // in a new tab
+    let newTab = document.createAttribute("target");
+    newTab.value = "_blank";
+    thirdLI.attributes.setNamedItem(newTab);
+
+
+    // color all (child elements of) elements with class "nav-item" red
+    let navItems = document.getElementsByClassName("nav-item");
+    let itemLength = navItems.length;
+    for (let i = 0; i < itemLength; i++) {
+        navItems[i].children[0].style.color = "red";
+    }
 }
