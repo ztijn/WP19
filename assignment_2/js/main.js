@@ -1,6 +1,5 @@
 function validateForm(formdata){
-    console.log(formdata);
-    
+    // check if all field are correctly filled in. if so, return true.
     for (let propname in formdata){
         if (formdata[propname]===""){
             $("#form-alert").text("Not all form fields are filled in!").show();
@@ -39,6 +38,7 @@ function validateForm(formdata){
 }
 
 function writeFormData(){
+    // make an object from the form data and show the content on the page.
     $("#submit").on('click', function(){
 
         let formdata = {
@@ -65,6 +65,7 @@ function writeFormData(){
         }
     });
 
+    // erase all values in the form
     $("#erase").on('click', function(){
         $('#name').val("");
         $('#age').val("");
@@ -75,6 +76,7 @@ function writeFormData(){
 }
 
 function tabs(){
+    // make the tabs work
     $("#link-tab").on('click', function(){
         $("#link-tab").addClass("active");
         $("#contact-tab").removeClass("active");
