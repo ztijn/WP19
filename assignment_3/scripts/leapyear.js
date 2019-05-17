@@ -5,7 +5,6 @@ $(function() {
     // only use this script on the leapyear page
     if (urlFilename==="leapyear.php"){
         validation();
-        console.log("hey");
     }
 });
 
@@ -18,7 +17,6 @@ function validation() {
     // Check age
     $('#age').keyup(function() {
         checkAge();
-        console.log("key")
     });
 
     // Check mail address
@@ -57,7 +55,7 @@ function checkName(){
 function checkAge(){
     let age_input = $('#age');
     let cur_val = age_input.val();
-    let age_regex = "/^[0-9]+$/";
+    let age_regex = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     if (cur_val.match(age_regex) && cur_val !== ''){
         age_input.removeClass('is-invalid');
         age_input.addClass('is-valid');
@@ -70,9 +68,9 @@ function checkAge(){
 }
 
 function checkMail(){
-    let mail_input = $('#email');
+    let mail_input = $('#mail');
     let cur_val = mail_input.val();
-    let mail_regex = "/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/";
+    let mail_regex = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     if (cur_val.match(mail_regex) && cur_val !== ''){
         mail_input.removeClass('is-invalid');
         mail_input.addClass('is-valid');
