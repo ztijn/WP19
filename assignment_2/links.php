@@ -30,11 +30,11 @@ include __DIR__ . '/tpl/body-start.php';
         <h5>Add a website by filling in the form below!</h5>
         <form>
             <div class="form-group">
-                <label for="name">Name of the website</label>
+                <label for="website">Name of the website</label>
                 <input type="text" class="form-control" id="website" placeholder="website name">
             </div>
             <div class="form-group">
-                <label for="age">URL</label>
+                <label for="url">URL</label>
                 <input type="text" class="form-control" id="url" placeholder="ulr">
             </div>
             <div class="alert alert-danger" id="web-alert" role="alert" style="display: none">

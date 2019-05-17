@@ -1,4 +1,15 @@
 $(function() {
+    let url=location.href;
+    let urlFilename = url.substring(url.lastIndexOf('/')+1);
+
+    // only use this script on the leapyear page
+    if (urlFilename==="leapyear.php"){
+        validation();
+        console.log("hey");
+    }
+});
+
+function validation() {
     // Check name
     $('#name').keyup(function() {
         checkName();
@@ -7,6 +18,7 @@ $(function() {
     // Check age
     $('#age').keyup(function() {
         checkAge();
+        console.log("key")
     });
 
     // Check mail address
@@ -25,7 +37,7 @@ $(function() {
             $('form').submit();
         }
     })
-});
+}
 
 function checkName(){
     let name_input = $('#name');
@@ -41,6 +53,7 @@ function checkName(){
         return false;
     }
 }
+
 function checkAge(){
     let age_input = $('#age');
     let cur_val = age_input.val();
@@ -55,6 +68,7 @@ function checkAge(){
         return false;
     }
 }
+
 function checkMail(){
     let mail_input = $('#email');
     let cur_val = mail_input.val();
@@ -69,6 +83,7 @@ function checkMail(){
         return false;
     }
 }
+
 function checkResidence(){
     let place_input = $('#place');
     let cur_val = place_input.val();

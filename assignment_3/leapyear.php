@@ -28,11 +28,11 @@ include __DIR__ . '/tpl/body_start.php';
                     <input type="text" class="form-control" id="age" name="age" placeholder="Enter your age">
                 </div>
                 <div class="form-group">
-                    <label for="name">Email address</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email address">
+                    <label for="mail">Email address</label>
+                    <input type="text" class="form-control" id="mail" name="mail" placeholder="Enter your email address">
                 </div>
                 <div class="form-group">
-                    <label for="age">Place/residence</label>
+                    <label for="place">Place/residence</label>
                     <input type="text" class="form-control" id="place" name="place" placeholder="Enter your place of residence">
                 </div>
                 <button type="button" id="confirm" class="btn btn-primary">Submit</button>
